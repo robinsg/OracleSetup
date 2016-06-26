@@ -1,0 +1,26 @@
+@@R:bash-4.3.30-1 4.3.30-1,@@R:vim-common-6.3-1 6.3-1,@@R:vim-enhanced-6.3-1 6.3-1
+
+
+
+ssh -l padmin ukslxuvpapp001 "ioscli shutdown -force -restart &"
+
+echo ssh -l padmin ukslxuvpapp003 "ioscli shutdown -force -restart &" | at now + 10 minutes
+echo ssh -l padmin ukslxuvpapp005 "ioscli shutdown -force -restart &" | at now + 25 minutes
+echo ssh -l padmin ukslxuvpodb001 "ioscli shutdown -force -restart &" | at now + 40 minutes
+echo ssh -l padmin ukslxuvpodb003 "ioscli shutdown -force -restart &" | at now + 55 minutes
+echo ssh -l padmin ukslxuvpodb005 "ioscli shutdown -force -restart &" | at now + 70 minutes
+
+
+slxvios
+
+
+
+
+echo ssh -l padmin ukslxuvpapp002 "ioscli shutdown -force -restart &" | at now
+echo ssh -l padmin ukslxuvpapp004 "ioscli shutdown -force -restart &" | at now + 15 minutes
+echo ssh -l padmin ukslxuvpapp006 "ioscli shutdown -force -restart &" | at now + 30 minutes
+echo ssh -l padmin ukslxuvpodb002 "ioscli shutdown -force -restart &" | at now + 45 minutes
+echo ssh -l padmin ukslxuvpodb004 "ioscli shutdown -force -restart &" | at now + 60 minutes
+echo ssh -l padmin ukslxuvpodb006 "ioscli shutdown -force -restart &" | at now + 75 minutes
+slxvios
+clear;while true; do at -l;ssh -l padmin ukslxuvpodb001 ioscli cluster -status; dsh -l padmin "print uptime|oem_setup_env"|sort -k1; sleep 30;clear; done
