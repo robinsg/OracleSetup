@@ -9,7 +9,7 @@ chfs -a size=5G /tmp
 nfso -p -o nfs_use_reserved_ports=1
 
 mkdev -l iocp0
-chdev -l iocp0 -a autoconfig='Available'
+chdev -l iocp0 -P -a autoconfig='available'
 
 chdev -l sys0 -a ncargs=1024 -a maxuproc=16384
 
