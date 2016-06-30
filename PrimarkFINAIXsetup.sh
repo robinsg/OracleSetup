@@ -4,7 +4,7 @@ mv /home/root.profile /.profile
 mv /home/user.profile /etc/security/.profile
 
 mkdev -l iocp0
-chdev -l iocp0 -a autoconfig='Available'
+chdev -l iocp0 -P -a autoconfig='available'
 tcpdump -d host 0
 nfso -p -o nfs_use_reserved_ports=1
 
